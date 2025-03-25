@@ -7,7 +7,7 @@
         Registration
         </v-toolbar>
         <v-card-text>
-        <v-form v-model="valid" ref="form" validation>
+          <v-form v-model="valid" ref="form" lazy-validation>
         <v-text-field
               prepend-icon="mdi-account"
               name="email"
@@ -67,8 +67,8 @@ data() {
       v => (v && v.length >= 6) || "Пароль должен состоять как минимум из 6 символов"
     ],
     confirmPasswordRules: [
-      v => !!v || 'Password is required',
-      v => v === this.password || 'Password should match'
+      v => !!v || 'Введи пароль',
+      v => v === this.password || 'Неверный пароль'
     ]
   };
 },
