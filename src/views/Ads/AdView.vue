@@ -7,7 +7,6 @@
                 <v-img
                 height="400px"
                 src="https://i.pinimg.com/736x/83/7d/3e/837d3e2e09c9bfdcecfe9b3d5a14ec7c.jpg"
-                cover
                 ></v-img>
                 <v-card-text>
                 <h1 class="text--primary mb-5">Suzuki GSX-R1000</h1>
