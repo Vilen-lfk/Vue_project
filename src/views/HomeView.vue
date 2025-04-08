@@ -63,7 +63,7 @@ export default {
 	return {
 		ads:[
 			{
-				title:"First",
+				title:"Suzuki GSX-R1000",
 				desc:"First Desc",
 				promo: true,
 				src: "https://i.pinimg.com/736x/83/7d/3e/837d3e2e09c9bfdcecfe9b3d5a14ec7c.jpg",
