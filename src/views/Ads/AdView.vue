@@ -2,6 +2,7 @@
     <v-container>
       <v-row>
         <v-col cols="12">
+          <h1>{{ id }}</h1>
             <v-card class="mt-5">
               <v-card class="mt-5">
                 <v-img
@@ -27,9 +28,16 @@
 </template>
 <script>
 export default {
-  data () {
-    return {
+	data () { 
+		return {}; 	
+	},
+  props: ['id'],
+  computed: {
+     ad() {
+       const id = this.id
+       return this.$store.getters.adById(id)
     }
   }
 }
+
 </script>

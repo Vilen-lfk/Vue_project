@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-import ads from './ads'
 import { createApp } from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
