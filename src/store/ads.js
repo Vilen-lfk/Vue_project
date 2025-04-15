@@ -31,8 +31,6 @@ export default {
       },
     ],
   },
-  mutations: {},
-  actions: {},
   getters: {
     ads(state) {
       return state.ads;
