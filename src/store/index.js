@@ -1,3 +1,5 @@
+import { createStore } from 'vuex'
+import ads from './ads'
 import { createApp } from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
@@ -13,10 +15,12 @@ createApp(App)
   .use(vuetify)
   .mount('#app')
 
-const store = createStore({
-modules:{
-}
-})
+  const store = createStore({
+    modules:{
+    ads
+    }
+    })    
+
 
 export default store
 
