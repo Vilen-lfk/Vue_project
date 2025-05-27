@@ -1,26 +1,14 @@
 import { createStore } from 'vuex'
 import ads from './ads'
-import { createApp } from 'vue'
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
-import { loadFonts } from './plugins/webfontloader'
-import router from './router'
-import store from './store'  // Импортируем уже существующий store
+import user from './user'  // Добавляем import user, которого не хватало
+import shared from './shared'
 
-loadFonts()
-
-createApp(App)
-  .use(router)
-  .use(store)  // Используем уже импортированный store
-  .use(vuetify)
-  .mount('#app')
-
-  const store = createStore({
-    modules:{
-    ads, user
-    }
-    })    
-
+const store = createStore({
+  modules: {
+    ads,
+    user,
+    shared
+  }
+})
 
 export default store
-

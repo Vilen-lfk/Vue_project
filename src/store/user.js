@@ -24,7 +24,7 @@ export default {
 },
     getters: {
      user(state) {
-            	return state.user
+return state.user
 	}
 }
 }
