@@ -17,7 +17,7 @@ createApp(App)
 
   const store = createStore({
     modules:{
-    ads
+    ads, user
     }
     })    
 
