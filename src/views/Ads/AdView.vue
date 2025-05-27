@@ -27,16 +27,15 @@
 </template>
 <script>
 export default {
-  props: ['id'],
-  data () {
-    return {
-    computed: {
-		ad() {
-		const id = this.id
-		return this.$store.getters.adById(id)
-		}
-	}
-
+  props: {
+    id: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    ad() {
+      return this.$store?.getters?.adById(this.id) || {};
     }
   }
 }
