@@ -79,6 +79,7 @@ methods: {
         email: this.email,
         password: this.password
       };
+      this.$store.dispatch('registerUser', user)
       console.log(user);
     }
   }
