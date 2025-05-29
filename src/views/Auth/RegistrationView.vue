@@ -74,14 +74,20 @@ data() {
   };
 },
 methods: {
-  onSubmit() {
+  async onSubmit() {
     if (this.$refs.form.validate()) {
       const user = {
         email: this.email,
         password: this.password
       };
-      this.$store.dispatch('registerUser', user)
-      console.log(user);
+      
+      try {
+        await this.$store.dispatch('registerUser', user);
+        this.$router.push("/");
+      } catch (err) {
+        console.error("Registration error:", err.message);
+        // Можно добавить отображение ошибки пользователю
+      }
     }
   }
 }
