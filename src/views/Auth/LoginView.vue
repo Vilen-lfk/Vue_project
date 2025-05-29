@@ -48,6 +48,7 @@ export default {
       email: "",
       password: "",
       valid: false,
+      loading: false, // Добавляем состояние загрузки
       emailRules: [
         v => !!v || "Введите E-mail",
         v => /.+@.+\..+/.test(v) || "Проверьте правильность написания E-mail"
@@ -59,13 +60,24 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       if (this.$refs.form.validate()) {
-        const user = {
-          email: this.email,
-          password: this.password
-        };
-        console.log(user);
+        this.loading = true; // Показываем индикатор загрузки
+        
+        try {
+          const user = {
+            email: this.email,
+            password: this.password
+          };
+          
+          await this.$store.dispatch('loginUser', user);
+          this.$router.push("/");
+        } catch (err) {
+          console.error("Ошибка входа:", err.message);
+          // Здесь можно показать ошибку пользователю
+        } finally {
+          this.loading = false; // Скрываем индикатор загрузки
+        }
       }
     }
   }
