@@ -74,6 +74,9 @@ throw 'Упс... Ошибка логина или пароля'
   getters: {
     user(state) {
       return state.user;
+    },
+    isUserLoggedln (state){
+      return state.user !== null
     }
   }
 };
