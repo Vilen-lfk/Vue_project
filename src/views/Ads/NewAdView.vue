@@ -90,8 +90,14 @@ loading() {
 				desc: this.description,
 				promo: this.promo,
 				src: "https://cdn.vuetifyjs.com/images/cards/cooking.png"
-			}
+			};
 			this.$store.dispatch("createAd", ad)
+      .then(() => {
+        this.$store.push("/list")
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 			}
 		}
 	}
