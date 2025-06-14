@@ -77,6 +77,11 @@ export default {
 			promo: false
 		} 	
 	},
+  computed: {
+loading() {
+		return this.$store.getters.loading
+	}
+},
 	methods: {
 		createAd(){
 			if (this.$refs.form.validate()){
