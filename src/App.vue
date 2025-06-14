@@ -3,7 +3,7 @@
     <v-navigation-drawer app v-model="drawer">
      <v-list-item
 @click="onLogout"
-v-if="isUserLoggedln"
+v-if="isUserLoggedIn"
 >
 <template v-slot:prepend>
 <v-icon icon="mdi-exit-to-app"></v-icon>
@@ -48,7 +48,7 @@ start
 {{ link.title }}
 </v-btn>
 <v-btn @click="onLogout"
-v-if="isUserLoggedln">
+v-if="isUserLoggedIn">
 <v-icon
 start
 icon="mdi-exit-to-app"
@@ -95,8 +95,8 @@ data() {
     error () {
       return this.$store.getters.error
    },
-   isUserLoggedln(){
-    return this.$store.getters.isUserLoggedln
+   isUserLoggedIn(){
+    return this.$store.getters.isUserLoggedIn
    },
    links(){
 if (this.isUserLoggedIn) {
@@ -117,9 +117,13 @@ methods: {
     closeError () {
       this.$store.dispatch('clearError')
     },
-    onLogout(){
-      this.$store.dispatch('logoutUser')
-      this.$syore.push("/")
+    async onLogout() {
+      try {
+        await this.$store.dispatch('logoutUser')
+        this.$router.push("/")
+      } catch (error) {
+        console.error('Logout error:', error)
+      }
     }
     
 
