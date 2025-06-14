@@ -1,16 +1,15 @@
 <template>
   <v-app>
     <v-navigation-drawer app v-model="drawer">
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="title">
-          КИПУ
-          </v-list-item-title>
-          <v-list-item-subtitle>
-          Учебный проект
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+     <v-list-item
+@click="onLogout"
+v-if="isUserLoggedln"
+>
+<template v-slot:prepend>
+<v-icon icon="mdi-exit-to-app"></v-icon>
+</template>
+<v-list-item-title>Logout</v-list-item-title>
+</v-list-item>
 
       <v-divider></v-divider>
 
@@ -37,18 +36,26 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-          <v-btn
-          v-for="link in links"
-          :key="link.title"
-          :to="link.url"
-          >
-          <v-icon
-              start
-              :icon="link.icon"
-          ></v-icon>
-          {{ link.title }}
-      </v-btn>
-      </v-toolbar-items>
+<v-btn
+v-for="link in links"
+:key="link.title"
+:to="link.url"
+>
+<v-icon
+start
+:icon="link.icon"
+></v-icon>
+{{ link.title }}
+</v-btn>
+<v-btn @click="onLogout"
+v-if="isUserLoggedln">
+<v-icon
+start
+icon="mdi-exit-to-app"
+></v-icon>
+Logout
+</v-btn>
+</v-toolbar-items>
       
     </v-app-bar>
     <v-main>
@@ -109,7 +116,13 @@ return [
 methods: {
     closeError () {
       this.$store.dispatch('clearError')
+    },
+    onLogout(){
+      this.$store.dispatch('logoutUser')
+      this.$syore.push("/")
     }
+    
+
  }
 
 

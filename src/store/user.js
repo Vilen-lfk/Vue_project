@@ -45,6 +45,9 @@ export default {
       }
     }
   },
+  logoutUser({ commit }) {
+      commit('clearUser');
+    },
   async loginUser({commit},{email, password}) {
 commit('clearError')
 commit('setLoading', true)
