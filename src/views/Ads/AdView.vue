@@ -16,7 +16,7 @@
                 </v-card-text>
                 <v-card-actions>
                 <v-spacer></v-spacer>
-                  <v-btn  class="warning">Edit</v-btn>
+                  <modal-dialog></modal-dialog>
                     <v-btn class="success">Buy</v-btn>
                 </v-card-actions>
                 </v-card>
@@ -25,18 +25,19 @@
       </v-row>
     </v-container>
 </template>
+
 <script>
+import EditAdModal from './EditAdModal.vue' 
 export default {
-  props: {
-    id: {
-      type: String,
-      required: true
-    }
-  },
-  computed: {
-    ad() {
-      return this.$store?.getters?.adById(this.id) || {};
-    }
-  }
-}
+	props: ['id'],
+	computed: {
+		ad() {
+		const id = this.id
+		return this.$store.getters.adById(id)
+		}
+	},
+	components: {
+		'modal-dialog': EditAdModal
+	}
+} 
 </script>
