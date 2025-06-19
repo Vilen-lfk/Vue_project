@@ -2,12 +2,14 @@ import { createStore } from 'vuex'
 import ads from './ads'
 import user from './user'  // Добавляем import user, которого не хватало
 import shared from './shared'
+import order from './order'
 
 const store = createStore({
   modules: {
     ads,
     user,
-    shared
+    shared,
+    order
   }
 })
 
