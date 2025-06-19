@@ -38,17 +38,11 @@
 export default {
   data () {
     return {
-      orders: 
-      [
-        {
-          id:"123",
-          name:"Kostya",
-          phone:"+7(978)000-00-05",
-          adId:"1",
-          done:true
-        }
-      ]
-
+      computed: {
+orders(){
+return this.$store.getters.orders
+}
+}
     }
   }
 }
